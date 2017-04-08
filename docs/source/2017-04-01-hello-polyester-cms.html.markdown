@@ -1,8 +1,16 @@
-# Polyester
+---
+title: こんにちは Polyester CMS です
+date: 2017-04-07 05:50 UTC
+tags:
+- Polyester
+- CMS
+- Polymer
+- E1 GP
+---
 
 これは `Polymer` でできたバックエンドアプリケーションが不要な `CMS` です。
 
-![](docs/images/polymer-logo.png)
+![](/images/polymer-logo.png)
 <small>Polymer は Google が開発している Web Components ベースのフロントエンドフレームワークです。</small>
 
 ### Markdown で書くだけ
@@ -46,18 +54,14 @@ echo "Hello Polyester CMS";
 
 ### 埋め込みタグも使える
 
-以下のような Speaker Deck などの埋め込みタグも、もちろん使うことができます。
+Speaker Deck などの埋め込みタグも、もちろん使うことができます。
 
-```html
 <script async class="speakerdeck-embed" data-id="e504d71ff11648838f2fc27571719b8d" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-```
 
 さらには Twitter の埋め込みタグだった、もちろん使うことができます。
 
-```html
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">お花見ランチ (@ 新宿中央公園 in 新宿区, 東京都) <a href="https://t.co/3iPwz5voxN">https://t.co/3iPwz5voxN</a> <a href="https://t.co/Awg3HhGwz4">pic.twitter.com/Awg3HhGwz4</a></p>&mdash; しずひこ (@sizuhiko) <a href="https://twitter.com/sizuhiko/status/849841160558456832">2017年4月6日</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-```
 
 ### スタイルのカスタマイズ
 
@@ -85,7 +89,7 @@ echo "Hello Polyester CMS";
 * Fork したリポジトリの設定(`Settings`)で、`GitHub Pages` を有効にする
 * 表示されたURLにアクセスする
 
-![](docs/images/gh-page-setting.png)
+![](/images/gh-page-setting.png)
 
 ### 記事を書く
 

@@ -80,7 +80,7 @@
 
         <!-- list/detail pages -->
         <iron-pages selected="[[selectedPage(query.*, detail)]]" fallback-selection="0">
-          <gh-articles user="sizuhiko" repository="sizuhiko.github.io" branch="source" directory="source"></gh-articles>
+          <gh-articles user="polyester-cms" repository="polyester.github.io" branch="master" directory="source"></gh-articles>
           <gh-article item="[[selectedItem(query.*)]]"></gh-article>
         </iron-pages>
       </app-drawer-layout>
@@ -102,7 +102,7 @@
       },
       selectedItem: function(query) {
         if(this.detail) {
-          return {download_url: URI.expand('https://raw.githubusercontent.com/sizuhiko/sizuhiko.github.io/source/source/{year}-{month}-{day}-{slug}.html.markdown', this.query)};
+          return {download_url: URI.expand('https://raw.githubusercontent.com/polyester-cms/polyester.github.io/master/source/{year}-{month}-{day}-{slug}.html.markdown', this.query)};
         }
       },
       toggleDrawer: function() {
