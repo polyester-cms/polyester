@@ -25,7 +25,9 @@
       </template>
     </iron-list>
     <footer>
-      <paper-spinner alt="Fetching new items..." active></paper-spinner>
+      <template is="if" if="!isLast(items, _couent)">
+        <paper-spinner alt="Fetching new items..." active></paper-spinner>
+      </template>
     </footer>
 
     <iron-scroll-threshold on-lower-threshold="_load" lower-threshold="500" id="threshold" scroll-target="document"></iron-scroll-threshold>
@@ -89,6 +91,9 @@
       },
       _resize: function () {
         this.$.articles.notifyResize();
+      },
+      isLast: function (items, count) {
+        return items.length < count;
       },
       ready: function () {
       }

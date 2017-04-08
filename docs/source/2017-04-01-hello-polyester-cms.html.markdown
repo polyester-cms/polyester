@@ -10,7 +10,7 @@ tags:
 
 これは `Polymer` でできたバックエンドアプリケーションが不要な `CMS` です。
 
-![](/images/polymer-logo.png)
+![](images/polymer-logo.png)
 <small>Polymer は Google が開発している Web Components ベースのフロントエンドフレームワークです。</small>
 
 ### Markdown で書くだけ
@@ -46,11 +46,7 @@ echo "Hello Polyester CMS";
 * Bash - bash
 * CSS - css
 
-なので、それ以外を使いたい場合は、`docs/elements/prismjs.html` に以下のようなHTMLを追加します。
-
-```markup
-<script src="../../bower_components/prism/components/prism-python.js"></script>
-```
+なので、それ以外を使いたい場合は、`docs/elements/prismjs.html` で、必要な言語のJSを読み込むように追加します。
 
 ### 埋め込みタグも使える
 
@@ -89,7 +85,7 @@ Speaker Deck などの埋め込みタグも、もちろん使うことができ�
 * Fork したリポジトリの設定(`Settings`)で、`GitHub Pages` を有効にする
 * 表示されたURLにアクセスする
 
-![](/images/gh-page-setting.png)
+![](images/gh-page-setting.png)
 
 ### 記事を書く
 
