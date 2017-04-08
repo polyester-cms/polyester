@@ -82,6 +82,25 @@ echo "Hello Polyester CMS";
 以下の手順で簡単に利用可能になります。
 
 * このリポジトリを `Fork` する
+
+#### リポジトリの設定を反映する
+
+`docs/elements/polyester-prototype-app/polyester-prototype-app.html` を編集します。
+
+83行目を変更して、`user` に GitHub のユーザー名を設定します。
+
+```markup
+<gh-articles user="あなたのGitHubユーザー名" repository="polyester" branch="master" directory="docs/source"></gh-articles>
+```
+
+105行目を変更して、GitHub のユーザー名を設定します。
+
+```javascript
+return {download_url: URI.expand('https://raw.githubusercontent.com/あなたのGitHubユーザー名/polyester/master/docs/source/{year}-{month}-{day}-{slug}.html.markdown', this.query)};
+```
+
+#### 公開する
+
 * Fork したリポジトリの設定(`Settings`)で、`GitHub Pages` を有効にする
 * 表示されたURLにアクセスする
 
