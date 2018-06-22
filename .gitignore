@@ -1,3 +1,19 @@
+### https://raw.github.com/github/gitignore/3269ab13d0cb122bd09be854316334941c3beddc/Global/macOS.gitignore
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### https://raw.github.com/github/gitignore/3269ab13d0cb122bd09be854316334941c3beddc/Composer.gitignore
+
+composer.phar
+/vendor/
+
+# Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
+# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
+# composer.lock
+
 ### https://raw.github.com/github/gitignore/9f6724149b9a0a861b402683f6c50c5f085d130b/Node.gitignore
 
 # Logs

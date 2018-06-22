@@ -1,7 +1,7 @@
 {
-  "name": "polyester-prototype",
-  "short_name": "polyester-prototype",
-  "description": "polyester prototype",
+  "name": "polyester",
+  "short_name": "polyester",
+  "description": "polyester",
   "start_url": "/",
   "display": "standalone"
 }

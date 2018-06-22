@@ -1,0 +1,85 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../../bower_components/iron-scroll-threshold/iron-scroll-threshold.html">
+<link rel="import" href="../../bower_components/paper-spinner/paper-spinner.html">
+
+<link rel="import" href="polyester-article.html">
+
+<script src="../../bower_components/xmlToJSON.js/lib/xmlToJSON.js"></script>
+
+<dom-module id="polyester-articles">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      footer {
+        display: block;
+        text-align: center;
+        margin: 2em;
+      }
+    </style>
+
+    <iron-list items="[[_loadedItems]]" as="item" id="articles" scroll-target="document">
+      <template>
+        <polyester-article item="[[item]]" on-rendered="_resize"></polyester-article>
+      </template>
+    </iron-list>
+    <footer>
+      <template is="if" if="!isLast(items, _couent)">
+        <paper-spinner alt="Fetching new items..." active></paper-spinner>
+      </template>
+    </footer>
+
+    <iron-scroll-threshold on-lower-threshold="_load" lower-threshold="500" id="threshold" scroll-target="document"></iron-scroll-threshold>
+    <iron-ajax auto url="/sitemap.xml" on-response="_triggerThreshold" last-response="{{xml}}" handle-as="xml"></iron-ajax>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'polyester-articles',
+      properties: {
+        items: {
+          type: Array
+        },
+        _loadedItems: {
+          type: Array,
+          value: function () {
+            return [];
+          }
+        },
+        _count: {
+          type: Number,
+          value: 0
+        },
+      },
+      _load: function (event) {
+        if (this.items && this.items.length > 0) {
+          this.async(function() {
+            this._copyItems();
+          }.bind(this), 500);
+        }
+      },
+      _triggerThreshold: function () {
+        this.items = xmlToJSON.parseXML(this.xml).urlset.map(function(set) { return set.url[0].loc[0]._text; });
+        this._copyItems();
+      },
+      _copyItems: function () {
+        this.items.slice(this._count, this._count + 5).forEach(function (item) {
+          this.push('_loadedItems', item);
+        }.bind(this));
+        this._count += 5;
+        this.$.threshold.clearTriggers();
+      },
+      _resize: function () {
+        this.$.articles.notifyResize();
+      },
+      isLast: function (items, count) {
+        return items.length < count;
+      },
+      ready: function () {
+      }
+    });
+  </script>
+</dom-module>

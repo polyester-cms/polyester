@@ -1,0 +1,68 @@
+application: polyester
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: true
+module: default
+
+skip_files:
+- ^(.*/)?composer\.(phar|lock|json)$
+- ^(node_modules/.*)
+- logs
+- ^\.(bowerrc|editorconfig|gitignore)
+- bower.json
+- package.json
+- polymer.json
+- tests
+- .git
+- test-fixture
+- web-component-tester
+- sinonjs
+- sinon-chai
+- mocha
+- chai
+
+handlers:
+- url: /favicon\.ico
+  static_files: docs/favicon.ico
+  upload: docs/favicon.ico
+
+- url: /bower_components
+  static_dir: docs/bower_components
+
+- url: /images
+  static_dir: docs/images
+
+- url: /scripts
+  static_dir: docs/scripts
+
+- url: /elements
+  static_dir: docs/elements
+
+- url: /(.*).markdown
+  static_files: docs/source/\1.markdown
+  upload: docs/source/(.*)\.markdown
+
+- url: /(.*).html
+  script: index.php
+
+- url: /sitemap.xml
+  script: index.php
+
+- url: /
+  script: index.php
+
+- url: /index.thtml
+  static_files: docs/index.html
+  upload: docs/index.html
+  application_readable: true
+
+- url: /(.*).(js|json|css)
+  static_files: docs/\1.\2
+  upload: docs/(.*)\.(js|json|css)
+
+automatic_scaling:
+  min_idle_instances: automatic
+  max_idle_instances: 1
+  min_pending_latency: 5000ms
+  max_pending_latency: automatic

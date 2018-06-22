@@ -1,6 +1,6 @@
 {
   "name": "xregexp",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "Extended regular expressions",
   "homepage": "http://xregexp.com/",
   "authors": [
@@ -31,11 +31,11 @@
     "tests",
     "tools"
   ],
-  "_release": "3.1.1",
+  "_release": "3.2.0",
   "_resolution": {
     "type": "version",
-    "tag": "v3.1.1",
-    "commit": "1f58b9208bd3255114785a0822dbbe22e6eabb97"
+    "tag": "v3.2.0",
+    "commit": "9bc0b6e5c431dc7c5ff731dfd90a2ab7f3d18b2f"
   },
   "_source": "https://github.com/slevithan/xregexp.git",
   "_target": "^3.1.1",

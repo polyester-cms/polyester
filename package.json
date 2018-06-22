@@ -4,12 +4,17 @@
   "description": "this is prototype for static site generator by polymer",
   "main": "index.js",
   "scripts": {
+    "polymer": "polymer",
+    "bower": "bower",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "bower": "^1.8.0",
-    "polymer-cli": "^0.17.0"
+    "bower-update-all": "^0.1.2"
+  },
+  "dependencies": {
+    "polymer-cli": "^1.7.4"
   }
 }

@@ -1,0 +1,10 @@
+{
+    "require": {
+        "slim/slim": "^3.0",
+        "tackk/cartographer": "1.0.*",
+        "webuni/front-matter": "^0.2.0",
+        "querypath/querypath": "^3.0",
+        "phlib/string": "^1.0",
+        "chriskonnertz/open-graph": "^1.0"
+    }
+}
