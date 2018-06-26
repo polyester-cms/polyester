@@ -8,7 +8,7 @@ tags:
 - E1 GP
 ---
 
-これは `Polymer` でできたバックエンドアプリケーションが不要な `CMS` です。
+これは `Polymer` でできた `CMS` です。
 
 ![](images/polymer-logo.png)
 <small>Polymer は Google が開発している Web Components ベースのフロントエンドフレームワークです。</small>
@@ -50,15 +50,22 @@ echo "Hello Polyester CMS";
 
 ### 埋め込みタグも使える
 
+埋め込みタグは `<div>` などのタグで囲むと利用することができます。
+
 Speaker Deck などの埋め込みタグも、もちろん使うことができます。
 
-<script async class="speakerdeck-embed" data-id="e504d71ff11648838f2fc27571719b8d" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+<div>
+  <div style="max-width:600px">
+    <script async class="speakerdeck-embed" data-id="e504d71ff11648838f2fc27571719b8d" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+  </div>
+</div>
 
 さらには Twitter の埋め込みタグだった、もちろん使うことができます。
 
-<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">お花見ランチ (@ 新宿中央公園 in 新宿区, 東京都) <a href="https://t.co/3iPwz5voxN">https://t.co/3iPwz5voxN</a> <a href="https://t.co/Awg3HhGwz4">pic.twitter.com/Awg3HhGwz4</a></p>&mdash; しずひこ (@sizuhiko) <a href="https://twitter.com/sizuhiko/status/849841160558456832">2017年4月6日</a></blockquote>
-
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div>
+  <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">お花見ランチ (@ 新宿中央公園 in 新宿区, 東京都) <a href="https://t.co/3iPwz5voxN">https://t.co/3iPwz5voxN</a> <a href="https://t.co/Awg3HhGwz4">pic.twitter.com/Awg3HhGwz4</a></p>&mdash; しずひこ (@sizuhiko) <a href="https://twitter.com/sizuhiko/status/849841160558456832">2017年4月6日</a></blockquote>
+  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
 
 ### スタイルのカスタマイズ
 
@@ -84,28 +91,24 @@ Speaker Deck などの埋め込みタグも、もちろん使うことができ�
 
 * このリポジトリを `Fork` する
 
-#### リポジトリの設定を反映する
+#### GitHub Pages で公開する
 
-`docs/elements/polyester-prototype-app/polyester-prototype-app.html` を編集します。
+GitHub Pagesで公開する場合、記事を更新するたびに `sitemap.xml` を作成する必要があります。
+`sitemap.xml` の生成には、以下のコマンドを実行します。
 
-83行目を変更して、`user` に GitHub のユーザー名を設定します。
-
-```markup
-<gh-articles user="あなたのGitHubユーザー名" repository="polyester" branch="master" directory="docs/source"></gh-articles>
-```
-
-105行目を変更して、GitHub のユーザー名を設定します。
-
-```javascript
-return {download_url: URI.expand('https://raw.githubusercontent.com/あなたのGitHubユーザー名/polyester/master/docs/source/{year}-{month}-{day}-{slug}.html.markdown', this.query)};
-```
-
-#### 公開する
+TODO: コマンド
 
 * Fork したリポジトリの設定(`Settings`)で、`GitHub Pages` を有効にする
 * 表示されたURLにアクセスする
 
 ![](images/gh-page-setting.png)
+
+#### Google App Engine で公開する
+
+GitHub Pagesでの公開ではSEOや、SNSでのシェアなどには向いていません。
+そこでGoogle App Engineにデプロイすることで、OGPを適切に出力したり、sitemap.xmlを自動生成したりします。
+
+TODO: デプロイ方法
 
 ### 記事を書く
 

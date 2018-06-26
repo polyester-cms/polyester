@@ -33,7 +33,7 @@
     </footer>
 
     <iron-scroll-threshold on-lower-threshold="_load" lower-threshold="500" id="threshold" scroll-target="document"></iron-scroll-threshold>
-    <iron-ajax auto url="/sitemap.xml" on-response="_triggerThreshold" last-response="{{xml}}" handle-as="xml"></iron-ajax>
+    <iron-ajax auto url="/sitemap.xml" on-response="_triggerThreshold" last-response="{{xml}}" handle-as="document"></iron-ajax>
   </template>
 
   <script>

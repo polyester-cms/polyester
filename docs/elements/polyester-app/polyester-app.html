@@ -56,7 +56,7 @@
 
     <app-header-layout>
 
-      <app-header fixed effects="waterfall" class="main-header">
+      <app-header slot="header" fixed effects="waterfall" class="main-header">
         <app-toolbar class="title-toolbar main-title-toolbar">
           <paper-icon-button icon="icons:arrow-back" hidden$="[[!detail]]" on-tap="gotoHome"></paper-icon-button>
           <div main-title id="main-title">
@@ -68,9 +68,9 @@
       </app-header>
 
       <app-drawer-layout>
-        <app-drawer id="drawer" align="end" opened="{{drawerOpened}}">
+        <app-drawer id="drawer" align="end" opened="{{drawerOpened}}" slot="drawer">
           <app-header-layout has-scrolling-region>
-            <app-header></app-header>
+            <app-header slot="header"></app-header>
             <div class="sidebar">
               名前とかプロフィール
             </div>
