@@ -62,7 +62,7 @@
         }
       },
       _triggerThreshold: function () {
-        this.items = xmlToJSON.parseXML(this.xml).urlset.map(function(set) { return set.url[0].loc[0]._text; });
+        this.items = xmlToJSON.parseXML(this.xml).urlset[0].url.map(function(url) { return url.loc[0]._text; });
         this._copyItems();
       },
       _copyItems: function () {

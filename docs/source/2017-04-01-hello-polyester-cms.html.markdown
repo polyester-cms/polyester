@@ -57,6 +57,7 @@ Speaker Deck などの埋め込みタグも、もちろん使うことができ�
 さらには Twitter の埋め込みタグだった、もちろん使うことができます。
 
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">お花見ランチ (@ 新宿中央公園 in 新宿区, 東京都) <a href="https://t.co/3iPwz5voxN">https://t.co/3iPwz5voxN</a> <a href="https://t.co/Awg3HhGwz4">pic.twitter.com/Awg3HhGwz4</a></p>&mdash; しずひこ (@sizuhiko) <a href="https://twitter.com/sizuhiko/status/849841160558456832">2017年4月6日</a></blockquote>
+
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ### スタイルのカスタマイズ

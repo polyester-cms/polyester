@@ -20,14 +20,14 @@
     "test",
     "tests"
   ],
-  "version": "0.4.0",
-  "_release": "0.4.0",
+  "version": "0.3.19",
+  "_release": "0.3.19",
   "_resolution": {
     "type": "version",
-    "tag": "0.4.0",
-    "commit": "78db8fb774afa651c87fdb09af2a0160e4f4619f"
+    "tag": "v0.3.19",
+    "commit": "5d1baa4d7ca55b27cb08029ac785e98b6378fcf0"
   },
   "_source": "https://github.com/chjj/marked.git",
-  "_target": "^0.4.0",
+  "_target": "~0.3.9",
   "_originalSource": "marked"
 }

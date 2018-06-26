@@ -82,18 +82,18 @@
       },
       _onResponse: function (event) {
         this._content = jsyaml.loadFront(event.detail.response);
-        Polymer.dom(this.$.content).innerHTML = marked(this._content.__content, {renderer: this._renderer, baseUrl: '/'});
+        this.$.content.innerHTML = marked(this._content.__content, {renderer: this._renderer, baseUrl: '/'});
         var scripts = this.$.content.querySelectorAll('.script');
         for (var i = 0; i < scripts.length; i++) {
           var tag = document.createElement('script');
           for (var j = 0; j < this._scripts[i].attributes.length; j++) {
-            tag.setAttribute([this._scripts[i].attributes[j].name], this._scripts[i].attributes[j].value);
+            tag.setAttribute(this._scripts[i].attributes[j].name, this._scripts[i].attributes[j].value);
           }
           tag.onload = function(){
             this.fire('rendered', event.detail);
           }.bind(this);
           delete this._scripts[i];
-          Polymer.dom(scripts[i]).appendChild(tag);
+          scripts[i].appendChild(tag);
         }
         this.updateStyles();
         this.fire('rendered', event.detail);
