@@ -141,7 +141,7 @@
             if ( curHeight != this._scriptFrames[i].lastHeight ) {
               this._scriptFrames[i].frame.setAttribute('height', this._scriptFrames[i].frame.contentWindow.document.body.scrollHeight + "px");
               this._scriptFrames[i].lastHeight = curHeight;
-              this.fire('iron-resize');
+              this.fire('rendered');
             }
           }
         }.bind(this), 1000);
