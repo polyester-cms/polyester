@@ -6,5 +6,11 @@
         "querypath/querypath": "^3.0",
         "phlib/string": "^1.0",
         "chriskonnertz/open-graph": "^1.0"
+    },
+    "scripts": {
+        "post-install-cmd": "@php sitemap.php"
+    },
+    "scripts-descriptions": {
+        "sitemap": "Generate sitemap.xml from docs/source"
     }
 }

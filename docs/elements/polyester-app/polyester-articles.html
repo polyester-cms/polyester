@@ -23,7 +23,7 @@
 
     <iron-list items="[[_loadedItems]]" as="item" id="articles" scroll-target="document">
       <template>
-        <polyester-article item="[[item]]" on-rendered="_resize"></polyester-article>
+        <polyester-article item="[[item]]" on-rendered="_resize" local="[[local]]"></polyester-article>
       </template>
     </iron-list>
     <footer>
@@ -43,6 +43,7 @@
         items: {
           type: Array
         },
+        local: Boolean,
         _loadedItems: {
           type: Array,
           value: function () {

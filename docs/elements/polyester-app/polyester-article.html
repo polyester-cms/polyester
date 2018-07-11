@@ -1,7 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="urijs.html">
-<link rel="import" href="polyester-theme.html">
 <link rel="import" href="prismjs.html">
 
 <script src="../../scripts/js-yaml-front-client.min.js"></script>
@@ -72,6 +71,7 @@
       is: 'polyester-article',
       properties: {
         item: Object,
+        local: Boolean,
         _content: Object,
         _renderer: Object,
         _scripts: Array,
@@ -102,7 +102,9 @@
         this.fire('rendered', event.detail);
       },
       _linkToDetailPage: function() {
-        location.href = this.item;
+        var uri = new URI(this.item);
+        window.history.pushState({}, null, (this.local ? '#' : '') + uri.path());
+        window.dispatchEvent(new CustomEvent('location-changed'));
       },
       _toMarkdownUrl: function() {
         var uri = new URI(this.item);
@@ -112,7 +114,7 @@
                                     (?<day>   [0-9]{2} ) /?        # day \n\
                                     (?<slug> .+ )\.html$ # slug', 'x');
         // to :year-:month-:day-:slug.html.markdown
-        return XRegExp.replace(uri.path(), pattern, '/${year}-${month}-${day}-${slug}.html.markdown');
+        return XRegExp.replace(uri.path(), pattern, '/source/${year}-${month}-${day}-${slug}.html.markdown');
       },
       ready: function () {
         this._scripts = [];

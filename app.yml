@@ -39,14 +39,15 @@ handlers:
 - url: /elements
   static_dir: docs/elements
 
-- url: /(.*).markdown
+- url: /source/(.*).markdown
   static_files: docs/source/\1.markdown
   upload: docs/source/(.*)\.markdown
 
-- url: /(.*).html
-  script: index.php
-
 - url: /sitemap.xml
+  static_files: docs/sitemap.xml
+  upload: docs/sitemap.xml
+
+- url: /(.*).html
   script: index.php
 
 - url: /

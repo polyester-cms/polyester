@@ -47,7 +47,7 @@
         @apply(--polyester-sidebar);
       }
     </style>
-    <app-location route="{{route}}"></app-location>
+    <app-location route="{{route}}" use-hash-as-path="[[local]]"></app-location>
     <app-route
         route="{{route}}"
         pattern="/:year/:month/:day/:slug"
@@ -81,8 +81,8 @@
 
         <!-- list/detail pages -->
         <iron-pages selected="[[selectedPage(query.*, detail)]]" fallback-selection="0">
-          <polyester-articles></polyester-articles>
-          <polyester-article item="[[selectedItem(query.*)]]"></polyester-article>
+          <polyester-articles local="[[local]]"></polyester-articles>
+          <polyester-article item="[[selectedItem(query.*)]]" local="[[local]]"></polyester-article>
         </iron-pages>
       </app-drawer-layout>
     </app-header-layout>
@@ -97,6 +97,7 @@
       properties: {
         query: Object,
         detail: Boolean,
+        local: {type: Boolean, value: false},
       },
       selectedPage: function(query) {
         return this.detail ? '1' : '0';
@@ -110,7 +111,8 @@
         this.$.drawer.toggle();
       },
       gotoHome: function() {
-        location.href = '/';
+        window.history.pushState({}, null, '/');
+        window.dispatchEvent(new CustomEvent('location-changed'));
       },
     });
   </script>

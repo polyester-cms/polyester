@@ -2,8 +2,6 @@
 
 require 'vendor/autoload.php';
 
-use Tackk\Cartographer\Sitemap;
-use Tackk\Cartographer\ChangeFrequency;
 use ChrisKonnertz\OpenGraph\OpenGraph;
 use Phlib\String;
 
@@ -46,26 +44,6 @@ $app->get('/{year}/{month}/{day}/{title}.html', function ($request, $response, $
   $qp->find('title')->after($og->renderTags());
 
   return $response->getBody()->write($qp->html5());
-});
-
-$app->get('/sitemap.xml', function ($request, $response, $args) {
-  $files = [];
-  $sitemap = new Tackk\Cartographer\Sitemap();
-  if ($dh = opendir('docs/source')) {
-    while (($file = readdir($dh)) !== false) {
-      if (preg_match('/^(\d{4})-(\d{2})-(\d{2})-(.*)\.html.markdown$/', $file, $matches)) {
-        $files["http://localhost:8080/{$matches[1]}/{$matches[2]}/{$matches[3]}/{$matches[4]}.html"] = filemtime("docs/source/{$file}");
-      }
-    }
-    closedir($dh);
-  }
-  asort($files);
-  foreach ($files as $url => $lastMod) {
-    $sitemap->add($url, date(DATE_ATOM, $lastMod));
-  }
-
-  $response->getBody()->write($sitemap->toString());
-  return $response->withHeader('Content-Type', 'application/xml');
 });
 
 $app->run();
